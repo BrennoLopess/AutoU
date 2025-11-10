@@ -1,0 +1,52 @@
+/* 🎨 Paleta AutoU */
+:root {
+  --azul-escuro: #1B2A55;
+  --azul-medio: #274690;
+  --laranja: #E36414;
+  --cinza: #C9CED6;
+  --branco: #F5F5F5;
+}
+
+/* Fundo gradiente */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, var(--azul-escuro), var(--laranja));
+  color: var(--branco);
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Título */
+h1 {
+  font-size: 2.5rem;
+  color: var(--branco);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Parágrafo */
+p {
+  font-size: 1.2rem;
+  color: var(--cinza);
+}
+
+/* Botão padrão */
+button {
+  background-color: var(--laranja);
+  border: none;
+  color: var(--branco);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: var(--azul-medio);
+}
