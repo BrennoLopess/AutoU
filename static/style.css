@@ -1,4 +1,3 @@
-/* 🎨 Paleta AutoU */
 :root {
   --azul-escuro: #1B2A55;
   --azul-medio: #274690;
@@ -10,43 +9,72 @@
 /* Fundo gradiente */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Raleway', sans-serif;
   background: linear-gradient(90deg, var(--azul-escuro), var(--laranja));
   color: var(--branco);
-  text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+/* Container principal */
+main {
+  text-align: center;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Logo */
+.logo {
+  width: 220px;
+  margin-bottom: 10px;
+  animation: fadeInDown 1.2s ease-out;
 }
 
 /* Título */
 h1 {
-  font-size: 2.5rem;
+  font-family: 'Comfortaa', cursive;
+  font-size: 2.8rem;
   color: var(--branco);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 0;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 1.2s ease-out;
 }
 
 /* Parágrafo */
 p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--cinza);
+  margin-top: 10px;
+  animation: fadeInUp 1.4s ease-out;
 }
 
-/* Botão padrão */
+/* Botão */
 button {
   background-color: var(--laranja);
   border: none;
   color: var(--branco);
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 28px;
+  font-size: 1.1rem;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
-  margin-top: 20px;
+  animation: fadeInUp 1.6s ease-out;
 }
 
 button:hover {
   background-color: var(--azul-medio);
+}
+
+/* Animações */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
