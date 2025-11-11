@@ -82,11 +82,24 @@ Acesse em:
 
 ### 🧠 Como Funciona
 
-1. O usuário insere o texto ou mensagem no campo de análise.  
-2. O modelo zero-shot da Hugging Face avalia o texto com base em dois rótulos:  
-   - **Produtivo**  
-   - **Improdutivo**  
-3. A IA retorna o rótulo mais provável e a **porcentagem de confiança**.  
+O **FlowSense** foi desenvolvido em duas etapas principais:
+
+1. **Protótipo inicial** — utilizava um modelo BERT voltado para classificação contextual simples, 
+similar ao pipeline usado no projeto **DesabafaAI**, com foco em análise de mensagens e empatia.  
+   🔍 Essa fase ajudou a validar o conceito e definir os primeiros rótulos (“Produtivo” e “Improdutivo”).
+
+2. **Versão aprimorada (atual)** — após testes e ajustes de performance, o projeto migrou para um 
+modelo **zero-shot multilingual da Hugging Face**, o `mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`.  
+   🚀 Essa mudança trouxe **maior precisão sem necessidade de fine-tuning**, aproveitando o poder do 
+modelo para entender contextos em português, inglês e espanhol.
+
+A lógica final é:
+- O usuário insere um texto ou mensagem.
+- O modelo compara a sentença com os rótulos “Produtivo” e “Improdutivo”.
+- A IA retorna o rótulo mais provável, junto da **porcentagem de confiança** exibida na interface.
+
+> 💡 Esse processo mostra como a IA evoluiu de uma abordagem experimental para uma solução
+multilíngue eficiente — um diferencial valorizado em pipelines de IA reais e em apresentações técnicas.
 
 ---
 
