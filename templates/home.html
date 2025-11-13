@@ -3,94 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoU - Classificação de Produtividade</title>
+    <title>FlowSense - Classificação Inteligente</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: linear-gradient(90deg, #0B2B61, #F26B1D);
-            font-family: "Poppins", sans-serif;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .logo {
-            width: 150px;
-            margin-bottom: 25px;
-            animation: fadeDown 1s ease-out forwards;
-        }
-
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-            animation: fadeUp 1.2s ease-out forwards;
-        }
-
-        p {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-bottom: 35px;
-            animation: fadeUp 1.4s ease-out forwards;
-        }
-
-        .button {
-            background: linear-gradient(90deg, #F26B1D, #fca142);
-            color: white;
-            font-weight: bold;
-            padding: 14px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1.1em;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            animation: fadeUp 1.6s ease-out forwards;
-        }
-
-        .button:hover {
-            transform: scale(1.08);
-            background: linear-gradient(90deg, #fca142, #F26B1D);
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-out {
-            opacity: 0;
-            transform: scale(1.02);
-            transition: all 0.7s ease;
-        }
-    </style>
 </head>
-<body>
-    <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" alt="AutoU Logo" class="logo">
-    <h1>FlowSense</h1>
-    <p>Descubra se suas mensagens são <strong>produtivas</strong> com inteligência artificial.</p>
-    <a href="/inicio" class="button" id="exploreBtn">Explorar</a>
-
-    <script>
-        const button = document.getElementById('exploreBtn');
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = '/inicio';
-            }, 600);
-        });
-    </script>
+<body class="home-bg">
+    <div class="home-container">
+        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="home-logo">
+        <h1 class="home-title">FlowSense</h1>
+        <p class="home-sub">Classificação inteligente de mensagens, powered by IA.</p>
+        <a href="/inicio" class="home-button">Explorar</a>
+    </div>
 </body>
 </html>

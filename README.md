@@ -1,128 +1,99 @@
-## 🧠 FlowSense – Classificação de Produtividade com IA
+AutoU – Classificador Inteligente de Produtividade
+==================================================
 
-<p align="center">
-  <img src="static/img/autoU-logo.png" alt="FlowSense Logo" width="150">
-</p>
+1. Visão Geral do Projeto
+O AutoU é uma aplicação web desenvolvida para classificar mensagens como Produtivas ou Improdutivas utilizando IA generativa (Claude 3.5 Haiku). O sistema também gera uma resposta profissional curta e educada com base no texto analisado. É um projeto completo, cobrindo frontend, backend, processamento de arquivos (PDF e TXT), engenharia de prompts e integração com API de IA.
 
-**FlowSense** é uma aplicação web que utiliza **Inteligência Artificial (Zero-Shot Classification)** 
-para analisar textos, e-mails e mensagens corporativas, identificando se o conteúdo é 
-**produtivo** ou **improdutivo**, com base em contexto, tom e objetivo.
+2. Problema Resolvido
+Ambientes de trabalho possuem grande volume de mensagens. O AutoU ajuda a:
+- Identificar rapidamente se uma mensagem é relevante.
+- Evitar distrações.
+- Automatizar respostas profissionais.
 
-O sistema foi desenvolvido com **Flask + Transformers (Hugging Face)** e apresenta uma interface 
-moderna, responsiva e intuitiva, com telas animadas e feedback visual em tempo real.
+3. Arquitetura da Solução
+Frontend:
+- HTML, CSS e Jinja.
+- Interface simples, limpa e responsiva.
 
----
+Backend:
+- Flask (Python).
+- Tratamento de uploads.
+- Extração de textos.
+- Comunicação com o modelo via OpenRouter.
 
-### 🚀 Demonstração
+IA:
+- Modelo: Claude 3.5 Haiku.
+- Dois prompts:
+  - Classificação binária (Produtivo / Improdutivo).
+  - Geração de resposta curta.
 
-<p align="center">
-  <img src="preview/demo.gif" alt="Demonstração do FlowSense" width="700">
-</p>
+4. Funcionalidades
+- Classificação binária.
+- Upload de PDF.
+- Upload de TXT.
+- Geração automática de respostas.
+- Tratamento de erros.
+- Interface amigável.
 
----
-
-### ⚙️ Tecnologias Utilizadas
-
-- 🧩 **Flask** — Backend leve e rápido em Python  
-- 🤖 **Hugging Face Transformers** — Modelo `mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`  
-- 🎨 **HTML5 + CSS3 + JavaScript** — Frontend com transições e animações  
-- 🔥 **Torch** — Suporte a GPU e processamento de embeddings  
-- 🧭 **Design Customizado** — Gradientes e efeitos suaves  
-
----
-
-### 🧩 Estrutura do Projeto
-
-FlowSense/
-├── app.py
-├── models/
-│   └── zero_shot_classifier.py
+5. Estrutura do Projeto
+AutoU/
+│── app.py
+│── requirements.txt
+│── README.md
+│
 ├── templates/
 │   ├── home.html
 │   ├── index.html
-│   └── analysis.html
+│   └── analise.html
+│
 ├── static/
 │   ├── style.css
-│   └── img/
-│       └── autoU-logo.png
-└── README.md
+│   ├── img/
+│       └── autou-logo.png
 
----
+6. Testes Realizados
+- Textos produtivos: OK
+- Textos improdutivos: OK
+- PDF produtivo: OK
+- PDF improdutivo: OK
+- TXT produtivo/improdutivo: OK
 
-### 💡 Como Executar Localmente
+7. Tecnologias Utilizadas
+Backend: Flask, Python, PyPDF2  
+IA: Claude 3.5 Haiku (OpenRouter)  
+Frontend: HTML5, CSS3, Jinja2  
 
-**1️⃣ Clone o repositório**
-```bash
-git clone https://github.com/seuusuario/flowsense.git
-cd flowsense
-```
+8. Instalação
+1. Clone:
+   git clone https://github.com/SEU_USUARIO/AutoU.git
 
-**2️⃣ Crie um ambiente virtual**
-```bash
-python -m venv venv
-venv\Scripts\activate  # (Windows)
-# ou
-source venv/bin/activate  # (Linux/Mac)
-```
+2. Ambiente:
+   python -m venv venv
+   source venv/bin/activate
 
-**3️⃣ Instale as dependências**
-```bash
-pip install -r requirements.txt
-```
+3. Instale dependências:
+   pip install -r requirements.txt
 
-**4️⃣ Execute o app**
-```bash
-python app.py
-```
+4. Crie .env com sua chave:
+   OPENROUTER_API_KEY=suachave
 
-Acesse em:  
-👉 http://127.0.0.1:5000
+5. Execute:
+   python app.py
 
----
+9. Possíveis Melhorias
+- Suporte a DOCX.
+- Histórico de análises.
+- Modo API.
+- Painel administrativo.
 
-### 🧠 Como Funciona
+10. Conclusão
+O AutoU demonstra capacidade técnica em:
+- IA aplicada.
+- Desenvolvimento end-to-end.
+- Processamento de arquivos.
+- Engenharia de prompts.
+- Arquitetura limpa e escalável.
 
-O **FlowSense** foi desenvolvido em duas etapas principais:
+Projeto pronto para ser apresentado a recrutadores.
 
-1. **Protótipo inicial** — utilizava um modelo BERT voltado para classificação contextual simples, 
-similar ao pipeline usado no projeto **DesabafaAI**, com foco em análise de mensagens e empatia.  
-   🔍 Essa fase ajudou a validar o conceito e definir os primeiros rótulos (“Produtivo” e “Improdutivo”).
-
-2. **Versão aprimorada (atual)** — após testes e ajustes de performance, o projeto migrou para um 
-modelo **zero-shot multilingual da Hugging Face**, o `mDeBERTa-v3-base-xnli-multilingual-nli-2mil7`.  
-   🚀 Essa mudança trouxe **maior precisão sem necessidade de fine-tuning**, aproveitando o poder do 
-modelo para entender contextos em português, inglês e espanhol.
-
-A lógica final é:
-- O usuário insere um texto ou mensagem.
-- O modelo compara a sentença com os rótulos “Produtivo” e “Improdutivo”.
-- A IA retorna o rótulo mais provável, junto da **porcentagem de confiança** exibida na interface.
-
-> 💡 Esse processo mostra como a IA evoluiu de uma abordagem experimental para uma solução
-multilíngue eficiente — um diferencial valorizado em pipelines de IA reais e em apresentações técnicas.
-
----
-
-### 🎨 Design & Experiência
-
-O FlowSense foi projetado com foco em **simplicidade e imersão**:
-- Tela inicial com animações suaves  
-- Gradiente institucional azul e laranja  
-- Transição fluida entre páginas  
-- Feedback visual dinâmico durante a análise  
-
----
-
-### 🧾 Licença
-
-Este projeto está sob a licença MIT.  
-Sinta-se livre para usar, modificar e distribuir.
-
----
-
-### 👨‍💻 Autor
-
-**Brenno Lopes**  
-💼 Engenharia de Software — IDP  
-📧 brenno.lopes@example.com  
-🔗 [linkedin.com/in/brenno-lopes](#)
+Desenvolvido por Brenno Lopes.

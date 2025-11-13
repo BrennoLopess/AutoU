@@ -1,80 +1,238 @@
-:root {
-  --azul-escuro: #1B2A55;
-  --azul-medio: #274690;
-  --laranja: #E36414;
-  --cinza: #C9CED6;
-  --branco: #F5F5F5;
-}
+/* ===========================
+   ESTILOS GERAIS
+=========================== */
 
-/* Fundo gradiente */
 body {
-  margin: 0;
-  font-family: 'Raleway', sans-serif;
-  background: linear-gradient(90deg, var(--azul-escuro), var(--laranja));
-  color: var(--branco);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: white;
 }
 
-/* Container principal */
-main {
-  text-align: center;
-  animation: fadeInUp 1.2s ease-out;
+/* Container central */
+.container {
+    text-align: center;
+    padding: 30px;
 }
 
-/* Logo */
+/* LOGO */
 .logo {
-  width: 220px;
-  margin-bottom: 10px;
-  animation: fadeInDown 1.2s ease-out;
+    width: 140px;
+    margin-bottom: 20px;
+    animation: dropIn 0.8s ease-out;
 }
 
-/* Título */
+/* Animação logo */
+@keyframes dropIn {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Títulos */
 h1 {
-  font-family: 'Comfortaa', cursive;
-  font-size: 2.8rem;
-  color: var(--branco);
-  margin-top: 0;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
-  animation: fadeInUp 1.2s ease-out;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 25px;
 }
 
-/* Parágrafo */
-p {
-  font-size: 1.1rem;
-  color: var(--cinza);
-  margin-top: 10px;
-  animation: fadeInUp 1.4s ease-out;
+/* ===========================
+   TELAS DE FUNDO
+=========================== */
+
+.home-bg {
+    background: linear-gradient(90deg, #0B2B61, #F26B1D);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Botão */
-button {
-  background-color: var(--laranja);
-  border: none;
-  color: var(--branco);
-  padding: 12px 28px;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  animation: fadeInUp 1.6s ease-out;
+.index-bg {
+    background: linear-gradient(90deg, #0B2B61, #F26B1D);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-button:hover {
-  background-color: var(--azul-medio);
+.resultado-bg {
+    background: linear-gradient(90deg, #0B2B61, #F26B1D);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Animações */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+
+/* ===========================
+   HOME (TELA INICIAL)
+=========================== */
+
+.home-container {
+    text-align: center;
+    animation: fadeIn 1s ease-out;
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.home-logo {
+    width: 170px;
+    margin-bottom: 20px;
+    animation: fadeDown 1s ease-out forwards;
+}
+
+.home-title {
+    font-size: 2.6em;
+    margin: 0;
+    animation: fadeUp 1.2s ease-out forwards;
+}
+
+.home-sub {
+    font-size: 1.2em;
+    opacity: 0.9;
+    margin-bottom: 40px;
+    animation: fadeUp 1.4s ease-out forwards;
+}
+
+.home-button {
+    background: linear-gradient(90deg, #F26B1D, #fca142);
+    padding: 14px 45px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    animation: fadeUp 1.6s ease-out forwards;
+}
+
+.home-button:hover {
+    transform: scale(1.08);
+    background: linear-gradient(90deg, #fca142, #F26B1D);
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Animações (home) */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(1.02);
+    transition: all 0.7s ease;
+}
+
+/* ===========================
+   FORMULÁRIOS
+=========================== */
+
+textarea {
+    width: 80%;
+    height: 150px;
+    border-radius: 10px;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    margin: 10px 0 20px 0;
+    font-size: 0.95rem;
+}
+
+/* Botões */
+.button {
+    background: linear-gradient(90deg, #F26B1D, #fca142);
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #fca142, #F26B1D);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+.button-sec {
+    color: white;
+    margin-left: 10px;
+    text-decoration: underline;
+    font-size: 0.95em;
+}
+
+/* ===========================
+   RESULTADOS
+=========================== */
+
+.result-box {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 25px 40px;
+    display: inline-block;
+    max-width: 700px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+    animation: fadeIn 0.9s ease forwards;
+}
+
+.texto-analisado {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #eaeaea;
+}
+
+.resultado {
+    display: inline-block;
+    padding: 7px 15px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.resultado.produtivo {
+    background-color: #4CAF50;
+}
+
+.resultado.improdutivo {
+    background-color: #E74C3C;
+}
+
+.sugestao {
+    font-size: 1.1em;
+    background: rgba(255,255,255,0.15);
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 1.5em;
+}
+
+
+/* ===========================
+   ANIMAÇÕES GERAIS
+=========================== */
+
+.fade-in {
+    animation: fadeIn 0.9s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }

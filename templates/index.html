@@ -1,209 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classificação de Produtividade - AutoU</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  <style>
-    body {
-      background: linear-gradient(90deg, #0B2B61, #F26B1D);
-      color: white;
-      font-family: "Poppins", sans-serif;
-      text-align: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    textarea {
-      width: 80%;
-      height: 150px;
-      border-radius: 10px;
-      border: none;
-      padding: 12px;
-      font-size: 1rem;
-      resize: none;
-    }
-
-    .button {
-      background: linear-gradient(90deg, #F26B1D, #fca142);
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #fca142, #F26B1D);
-    }
-
-    .button-sec {
-      color: white;
-      margin-left: 10px;
-      text-decoration: underline;
-    }
-
-    /* ====== OVERLAY DE CARREGAMENTO ====== */
-    #loading-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 10, 10, 0.94);
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s ease;
-    }
-
-    #loading-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .loading-logo {
-      width: 130px;
-      margin-bottom: 25px;
-      animation: float 2.5s ease-in-out infinite;
-      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
-    }
-
-    .spinner {
-      position: relative;
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, 0.15);
-      border-top: 5px solid #fca142;
-      animation: spin 1s linear infinite, glow 1.5s ease-in-out infinite alternate;
-      margin-bottom: 20px;
-    }
-
-    .loading-text {
-      margin-top: 10px;
-      font-weight: 500;
-      font-size: 1.1em;
-      letter-spacing: 0.5px;
-      color: #f2f2f2;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-      transition: opacity 0.5s ease;
-    }
-
-    .progress-container {
-      width: 220px;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 20px;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, #F26B1D, #fca142);
-      border-radius: 10px;
-      transition: width 0.3s ease;
-      box-shadow: 0 0 10px rgba(252, 161, 66, 0.6);
-    }
-
-    .ready-text {
-      opacity: 0;
-      font-size: 1.3em;
-      color: #fca142;
-      font-weight: 600;
-      margin-top: 25px;
-      letter-spacing: 1px;
-      transition: opacity 1s ease;
-    }
-
-    .ready-text.show {
-      opacity: 1;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-    }
-
-    @keyframes glow {
-      from { box-shadow: 0 0 6px rgba(252, 161, 66, 0.3); }
-      to { box-shadow: 0 0 20px rgba(252, 161, 66, 0.8); }
-    }
-
-    form { position: relative; z-index: 1; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowSense - Analisar Mensagem</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-  <div class="container fade-in">
-    <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" alt="AutoU Logo" class="logo" />
-    <h1>Classificação de Produtividade</h1>
-    <p>Insira o conteúdo do e-mail ou mensagem abaixo e clique em <strong>Analisar</strong>.</p>
 
-    <form id="analysis-form" action="/analise" method="POST">
-      <textarea name="texto" placeholder="Cole aqui o conteúdo do e-mail..." required></textarea>
-      <div class="buttons">
-        <button type="submit" class="button">Analisar</button>
-        <a href="/" class="button-sec">Voltar</a>
-      </div>
-    </form>
-  </div>
+<body class="index-bg">
+    <div class="container fade-in">
+        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
 
-  <!-- Tela de carregamento -->
-  <div id="loading-overlay">
-    <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="loading-logo" alt="Logo AutoU" />
-    <div class="spinner"></div>
-    <div class="loading-text" id="loading-text">Analisando texto... 0%</div>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress-bar"></div>
+        <h1>Classificação de Produtividade</h1>
+
+        <form id="analysis-form" action="/analise" method="POST" enctype="multipart/form-data">
+            <textarea name="email_text" placeholder="Cole aqui o conteúdo..." ></textarea>
+
+            <p>Ou envie um arquivo (.txt ou .pdf):</p>
+            <input type="file" name="file">
+
+            <div class="buttons">
+                <button type="submit" class="button">Analisar</button>
+                <a href="/" class="button-sec">Voltar</a>
+            </div>
+        </form>
     </div>
-    <div class="ready-text" id="ready-text">Pronto!</div>
-  </div>
-
-  <script>
-    const form = document.getElementById("analysis-form");
-    const overlay = document.getElementById("loading-overlay");
-    const progressBar = document.getElementById("progress-bar");
-    const loadingText = document.getElementById("loading-text");
-    const readyText = document.getElementById("ready-text");
-
-    form.addEventListener("submit", () => {
-      overlay.classList.add("active");
-      let progress = 0;
-
-      const interval = setInterval(() => {
-        progress += Math.random() * 12;
-        if (progress >= 100) progress = 100;
-        progressBar.style.width = progress + "%";
-        loadingText.textContent = `Analisando texto... ${Math.round(progress)}%`;
-
-        if (progress === 100) {
-          clearInterval(interval);
-          loadingText.style.opacity = 0;
-          setTimeout(() => {
-            readyText.classList.add("show");
-            setTimeout(() => {
-              readyText.classList.remove("show");
-              overlay.style.opacity = 0;
-            }, 1000);
-          }, 600);
-        }
-      }, 250);
-    });
-  </script>
 </body>
 </html>

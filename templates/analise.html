@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowSense - Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="resultado-bg">
+    <div class="container fade-in">
+        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
+
+        <h1>Resultado da Análise</h1>
+
+        <div class="result-box">
+            <h3>Texto analisado:</h3>
+            <p class="texto-analisado">{{ texto }}</p>
+
+            <h3>Classificação:</h3>
+            <span class="resultado {{ classificacao|lower }}">{{ classificacao }}</span>
+
+            <h3>Sugestão de resposta:</h3>
+            <p class="sugestao">{{ sugestao }}</p>
+
+            <a href="/inicio" class="button">Nova análise</a>
+        </div>
+    </div>
+</body>
+</html>
