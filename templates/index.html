@@ -1,29 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlowSense - Analisar Mensagem</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowSense - Analisar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="index-bg">
-    <div class="container fade-in">
-        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
+<body class="bg-gradient">
 
-        <h1>Classificação de Produtividade</h1>
+    <div class="glass-card fade-in">
 
-        <form id="analysis-form" action="/analise" method="POST" enctype="multipart/form-data">
-            <textarea name="email_text" placeholder="Cole aqui o conteúdo..." ></textarea>
+        <!-- AGORA A LOGO VOLTA PRO HOME -->
+        <a href="/">
+            <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
+        </a>
 
-            <p>Ou envie um arquivo (.txt ou .pdf):</p>
-            <input type="file" name="file">
+        <h1 class="title">Análise de Produtividade</h1>
+        <p class="subtitle">Envie um texto ou arquivo para análise.</p>
 
-            <div class="buttons">
-                <button type="submit" class="button">Analisar</button>
-                <a href="/" class="button-sec">Voltar</a>
-            </div>
+        <form action="/analise" method="POST" enctype="multipart/form-data" class="form-area" id="analysis-form">
+
+            <textarea name="email_text" placeholder="Cole aqui sua mensagem..."></textarea>
+
+            <p class="divider">ou envie um arquivo PDF/TXT</p>
+
+            <input type="file" name="file" class="file-input">
+
+            <button type="submit" class="button-primary">Analisar</button>
+            <a href="/" class="button-secondary">Voltar</a>
+
         </form>
+
     </div>
+
+    <!-- OVERLAY DE LOADING -->
+    <div id="loading-overlay">
+        <div class="loader"></div>
+        <p class="loading-text">Analisando com IA...</p>
+    </div>
+
+    <script>
+        const form = document.getElementById("analysis-form");
+        const overlay = document.getElementById("loading-overlay");
+
+        form.addEventListener("submit", () => {
+            overlay.style.display = "flex";
+        });
+    </script>
+
 </body>
 </html>

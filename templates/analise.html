@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowSense - Resultado</title>
+    <title>Resultado - FlowSense</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body class="resultado-bg">
-    <div class="container fade-in">
+<body class="bg-gradient">
+
+    <div class="glass-card fade-in result-card">
+
         <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
 
-        <h1>Resultado da Análise</h1>
+        <h1 class="title">Resultado da Análise</h1>
 
-        <div class="result-box">
-            <h3>Texto analisado:</h3>
-            <p class="texto-analisado">{{ texto }}</p>
+        <div class="result-block">
+            <h3>Texto Analisado</h3>
+            <p class="text-box">{{ texto }}</p>
 
-            <h3>Classificação:</h3>
-            <span class="resultado {{ classificacao|lower }}">{{ classificacao }}</span>
+            <h3>Classificação</h3>
+            <span class="tag {{ classificacao|lower }}">{{ classificacao }}</span>
 
-            <h3>Sugestão de resposta:</h3>
-            <p class="sugestao">{{ sugestao }}</p>
+            <h3>Sugestão de Resposta</h3>
+            <p class="suggestion">{{ sugestao }}</p>
 
-            <a href="/inicio" class="button">Nova análise</a>
+            <a href="/inicio" class="button-primary">Nova Análise</a>
         </div>
+
     </div>
+
 </body>
 </html>

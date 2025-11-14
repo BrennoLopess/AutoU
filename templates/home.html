@@ -2,16 +2,25 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowSense - Classificação Inteligente</title>
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowSense</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="home-bg">
-    <div class="home-container">
-        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="home-logo">
-        <h1 class="home-title">FlowSense</h1>
-        <p class="home-sub">Classificação inteligente de mensagens, powered by IA.</p>
-        <a href="/inicio" class="home-button">Explorar</a>
+
+<body class="bg-gradient">
+
+    <div class="glass-card fade-in">
+
+        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo-big">
+
+        <h1 class="title">FlowSense</h1>
+        <p class="subtitle">Classificação inteligente de mensagens, powered by AI.</p>
+
+        <a href="/inicio" class="button-primary">Começar</a>
+
+        <p class="footer">Desenvolvido por Brenno Lopes — 2025</p>
+
     </div>
+
 </body>
 </html>

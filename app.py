@@ -8,7 +8,7 @@ import PyPDF2
 # ===========================
 # CONFIGURAÇÃO DO OPENROUTER
 # ===========================
-OPENROUTER_API_KEY = "CHAVE"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 client = OpenAI(
     api_key=OPENROUTER_API_KEY,
