@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: "Sora", sans-serif;
     color: white;
 }
 
@@ -18,6 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 /* Animação do degradê */
@@ -37,13 +38,14 @@ body {
     backdrop-filter: blur(18px);
     background: rgba(255, 255, 255, 0.12);
     border-radius: 30px;
-    padding: 50px 60px;
+    padding: 50px 60px 70px;
     text-align: center;
     box-shadow:
         0 10px 30px rgba(0,0,0,0.2),
         inset 0 0 20px rgba(255,255,255,0.1);
     border: 1px solid rgba(255, 255, 255, 0.18);
     animation: rise 1s ease forwards;
+    position: relative;
 }
 
 @keyframes rise {
@@ -120,7 +122,7 @@ body {
 }
 
 /* ===========================
-   FORM — MELHORADO
+   FORM
 =========================== */
 
 textarea {
@@ -138,18 +140,101 @@ textarea {
     transition: 0.3s ease;
 }
 
+textarea::placeholder {
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+}
+
 textarea:focus {
     background: rgba(255,255,255,0.16);
     border: 2px solid #ff9f45;
 }
 
-.file-input {
-    margin: 20px 0;
+.divider {
+    opacity: 0.9;
+    margin: 18px 0 10px;
+    font-size: 0.95rem;
 }
 
-.divider {
-    opacity: 0.8;
-    margin: 10px 0 5px;
+/* ===========================
+   UPLOAD ESTILIZADO
+=========================== */
+
+.file-upload-container {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-btn {
+    background: rgba(255,255,255,0.18);
+    padding: 10px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.35);
+    transition: 0.2s;
+    user-select: none;
+}
+
+.file-btn:hover {
+    background: rgba(255,255,255,0.28);
+}
+
+.hidden-file-input { display: none; }
+
+.file-name {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: #e0e0e0;
+}
+
+/* ===========================
+   BOTÃO ANALISAR
+=========================== */
+
+.button-analyze {
+    margin-top: 24px;
+    background: linear-gradient(90deg, #1e3c72, #ff7e5f);
+    border: none;
+    padding: 14px 48px;
+    color: white;
+    border-radius: 14px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.25s;
+    font-weight: 600;
+}
+
+.button-analyze:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 22px rgba(255,255,255,0.26);
+}
+
+/* ===========================
+   BOTÃO VOLTAR
+=========================== */
+
+.back-link {
+    position: absolute;
+    left: 40px;
+    bottom: 28px;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(0,0,0,0.18);
+    backdrop-filter: blur(6px);
+    transition: 0.25s;
+}
+
+.back-link:hover {
+    background: rgba(0,0,0,0.28);
+    transform: translateX(-2px);
 }
 
 /* ===========================
@@ -171,13 +256,8 @@ textarea:focus {
     margin-bottom: 20px;
 }
 
-.tag.produtivo {
-    background: #4CAF50;
-}
-
-.tag.improdutivo {
-    background: #E74C3C;
-}
+.tag.produtivo { background: #4CAF50; }
+.tag.improdutivo { background: #E74C3C; }
 
 .suggestion {
     padding: 15px;
@@ -233,4 +313,20 @@ textarea:focus {
     margin-top: 20px;
     font-size: 1.2em;
     opacity: 0.9;
+}
+
+/* ===========================
+   AJUSTE ESPECÍFICO: HOME CENTRALIZADA
+=========================== */
+
+.home-card {
+    margin-top: -40px;  /* Ajuste fino: card fica perfeitamente centralizado */
+    transform: translateY(-10px);
+}
+
+@media (max-height: 900px) {
+    .home-card {
+        margin-top: 0;
+        transform: none;
+    }
 }

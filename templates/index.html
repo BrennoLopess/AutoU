@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,43 +12,55 @@
 
     <div class="glass-card fade-in">
 
-        <!-- AGORA A LOGO VOLTA PRO HOME -->
-        <a href="/">
-            <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
-        </a>
+        <a href="/"><img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo"></a>
 
         <h1 class="title">Análise de Produtividade</h1>
         <p class="subtitle">Envie um texto ou arquivo para análise.</p>
 
-        <form action="/analise" method="POST" enctype="multipart/form-data" class="form-area" id="analysis-form">
+        <form action="/analise" method="POST" enctype="multipart/form-data" id="analysis-form">
 
             <textarea name="email_text" placeholder="Cole aqui sua mensagem..."></textarea>
 
             <p class="divider">ou envie um arquivo PDF/TXT</p>
 
-            <input type="file" name="file" class="file-input">
+            <div class="file-upload-container">
+                <label class="file-btn" for="fileInput">📄 Enviar arquivo</label>
+                <input id="fileInput" type="file" name="file" class="hidden-file-input">
+                <span id="file-name" class="file-name">Nenhum arquivo selecionado</span>
+            </div>
 
-            <button type="submit" class="button-primary">Analisar</button>
-            <a href="/" class="button-secondary">Voltar</a>
+            <button id="analyze-btn" type="submit" class="button-analyze">Analisar</button>
+
+            <a href="/" class="back-link">← Voltar</a>
 
         </form>
 
     </div>
 
-    <!-- OVERLAY DE LOADING -->
+    <!-- LOADING -->
     <div id="loading-overlay">
         <div class="loader"></div>
         <p class="loading-text">Analisando com IA...</p>
     </div>
 
     <script>
+        const input = document.getElementById("fileInput");
+        const nameSpan = document.getElementById("file-name");
+        input.addEventListener("change", () => {
+            nameSpan.textContent = input.files[0]?.name || "Nenhum arquivo selecionado";
+        });
+
         const form = document.getElementById("analysis-form");
         const overlay = document.getElementById("loading-overlay");
+        const button = document.getElementById("analyze-btn");
 
         form.addEventListener("submit", () => {
             overlay.style.display = "flex";
+            button.classList.add("loading");
+            button.textContent = "Processando...";
         });
     </script>
 
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,32 @@
 
     <div class="glass-card fade-in result-card">
 
-        <img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo">
+        <a href="/"><img src="{{ url_for('static', filename='img/autoU-logo.png') }}" class="logo"></a>
 
         <h1 class="title">Resultado da Análise</h1>
 
         <div class="result-block">
+
             <h3>Texto Analisado</h3>
             <p class="text-box">{{ texto }}</p>
 
             <h3>Classificação</h3>
-            <span class="tag {{ classificacao|lower }}">{{ classificacao }}</span>
+
+            {% if classificacao == "Produtivo" %}
+                <span class="tag produtivo">✔ Produtivo</span>
+            {% else %}
+                <span class="tag improdutivo">⚠ Improdutivo</span>
+            {% endif %}
 
             <h3>Sugestão de Resposta</h3>
             <p class="suggestion">{{ sugestao }}</p>
 
             <a href="/inicio" class="button-primary">Nova Análise</a>
+
         </div>
 
     </div>
 
 </body>
+
 </html>
