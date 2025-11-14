@@ -34,7 +34,7 @@ Além disso, a solução deveria:
 - Ser hospedada publicamente  
 - Utilizar inteligência artificial real
 
-A solução precisava ser simples, clara, intuitiva e profissional — tanto no frontend quanto no backend.
+A solução precisava ser simples, clara, intuitiva e profissional, tanto no frontend quanto no backend.
 
 ---
 
@@ -369,4 +369,5 @@ Desenvolvedor • Eng. de Software • Apaixonado por IA
 LinkedIn: https://www.linkedin.com/in/brennolopes/
 
 GitHub: https://github.com/BrennoLopess
+
 
