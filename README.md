@@ -21,7 +21,7 @@ Este readme foi projetado para guiar qualquer recrutador, avaliador ou desenvolv
 1. CONTEXTO DO DESAFIO
 ----------------------
 
-O desafio proposto simulava a rotina de uma grande empresa do setor financeiro que recebe centenas de mensagens todos os dias — e precisava classificá‑las automaticamente entre:
+O desafio proposto simulava a rotina de uma grande empresa do setor financeiro que recebe centenas de mensagens todos os dias e precisava classificá‑las automaticamente entre:
 
 - **Produtivo**  
 - **Improdutivo**
@@ -367,4 +367,5 @@ Brenno Lopes
 Desenvolvedor • Eng. de Software • Apaixonado por IA   
                  
 LinkedIn: https://www.linkedin.com/in/brennolopes/
+
 GitHub: https://github.com/BrennoLopess
