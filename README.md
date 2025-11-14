@@ -142,9 +142,10 @@ Rodando com:
 👨‍💻 Autor
 
 Brenno Lopes
-Desenvolvedor • Eng. de Software • Apaixonado por IA
+Desenvolvedor • Eng. de Software • Apaixonado por IA                    
 LinkedIn: https://www.linkedin.com/in/brennolopes/
 GitHub: https://github.com/BrennoLopess
 
 ------------------------------------------------------------------------
+
 
